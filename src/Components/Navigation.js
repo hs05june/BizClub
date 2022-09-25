@@ -166,8 +166,8 @@ const NavigationStyled = styled.nav`
         }
     }
     .headingText{
-        
-        margin-left:10px;
+        font-size:1.2vw;
+        margin-left:0.5vw;
     }
     `;
     export default Navigation;

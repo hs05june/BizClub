@@ -52,7 +52,6 @@ function MarketPage() {
 }
 const ResumePageStyled = styled.div`
 width:100%;
-// height:60vh;
 .avatar{
     width:90%;
     margin: 2vh 0;
