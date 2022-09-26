@@ -1,10 +1,17 @@
 import React from 'react'
 import styled from 'styled-components';
+import { useData } from '../context/contextapi';
 
 function BuySell(props) {
+  // const {pop,setPop} = useData;
+  const {setPop} = useData()
+  const buyStock =()=>{
+    setPop(true);
+    <BuyPopup name={props.name} ltp={props.ltp} id={props.id}/>
+  }
   return (
     <BuySellStyle>
-      <button className='buy'>BUY</button>
+      <button className='buy' onClick={buyStock}>BUY</button>
       <button className='sell'>{props.use}</button>
     </BuySellStyle>
   )

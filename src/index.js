@@ -4,14 +4,18 @@ import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import GlobalStyle from './Pages/styles/GlobalStyle';
 
+
 ReactDOM.render(
   <React.StrictMode>
-    
     <GlobalStyle />
     <BrowserRouter>
+    <AuthProvider>
       <App />
+    </AuthProvider>
+=======
+      <App />
+
     </BrowserRouter>
-    
   </React.StrictMode>,
   document.getElementById('root')
 );

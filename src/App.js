@@ -16,18 +16,43 @@ import NavBar from "./Pages/NavBar";
 import Login from "./Components/Login";
 import PortfoliosPage from "./Pages/PortfoliosPage";
 import Watchlist from "./Pages/WatchList";
+import { useData } from "./context/contextapi";
+import { collection, getDocs, query, where } from "firebase/firestore";
 // import AboutPage from "./Pages/AboutPage";
-
+import { useHistory } from "react-router";
+import { db } from "./firebase.config";
+import BuyPopup from "./Components/BuyPopup";
 
 function App() {
   const [theme, setTheme] = useState('dark-theme');
   const [checked, setChecked] = useState(false);
   const [navToggle, setNavToggle] = useState(false);
-
+  const {uid,navigate,setStocks,pop,user,setUser} = useData();
+  // const history = useHistory();
   useEffect(()=>{
+    if(!uid) {
+      navigate.push("/login");
+    }
+    getStocks();
+    if(!user){
+      getUserData();
+    }
     document.documentElement.className = theme;
   }, [theme]);
-
+  const getUserData = async() =>{
+    const q1 = query(collection(db,"teams"),where("uid","==",uid));
+    const docs = await getDocs(q1);
+    // console.log(docs.docs[0].data());
+    setUser(docs.docs[0].data());
+    
+  }
+  const getStocks = async ()=>{
+    // const q1 = query(db(collection,"stocks"));
+    const q1 = query(collection(db,"stocks"));
+    const docs = await getDocs(q1);
+    console.log(docs.docs[0].data());
+    setStocks(docs.docs.map((e)=>({...e.data(),id:e.id})));
+  }
   const themeToggler = () =>{
     if(theme === 'light-theme'){
       setTheme('dark-theme');
@@ -40,6 +65,10 @@ function App() {
 
   return (
     <div className="App">
+      {
+        pop &&
+        <BuyPopup/>
+      }
       <Switching>
         <Route exact path='/login'>
           <Login checked={checked} themeToggler={themeToggler}/>

@@ -3,9 +3,10 @@ import React from 'react'
 import styled from 'styled-components';
 import { useData } from '../context/contextapi';
 import { db } from '../firebase.config';
+import BuyPopup from './BuyPopup';
 
 function Buy_Watchlist(props) {
-    const {uid} =useData();
+    const {uid,setPop,setCurrentStock} =useData();
     const addtowatchlist =()=>{
         console.log('added to watchlist')
         addDoc(collection(db,`watchlist_${uid}`),{
@@ -24,12 +25,15 @@ function Buy_Watchlist(props) {
         .catch(e=>{
             console.error("Error occured while adding to watchlist",e);
         })
-        
 
+}
+const buyStock =()=>{
+    setCurrentStock(props);
+    setPop(true);
 }
   return (
     <BuySellStyle>
-      <button className='buy'>BUY</button>
+      <button className='buy' onClick={buyStock}>BUY</button>
       <button className='sell' onClick={addtowatchlist}>{props.use}</button>
     </BuySellStyle>
   )

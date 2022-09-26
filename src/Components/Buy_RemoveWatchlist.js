@@ -5,6 +5,7 @@ import { useData } from '../context/contextapi';
 import { db } from '../firebase.config';
 
 function Buy_RemoveWatchlist(props) {
+  const {setPop,setCurrentStock} = useData();
     const {uid} =useData();
     const removefromwatchlist =()=>{
         console.log('remove from watchlist')
@@ -20,9 +21,13 @@ function Buy_RemoveWatchlist(props) {
         
 
 }
+const buyStock =()=>{
+  setCurrentStock(props);
+  setPop(true);
+}
   return (
     <BuySellStyle>
-      <button className='buy'>BUY</button>
+      <button className='buy' onClick={buyStock}>BUY</button>
       <button className='sell' onClick={removefromwatchlist}>{props.use}</button>
     </BuySellStyle>
   )

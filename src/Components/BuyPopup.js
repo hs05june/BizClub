@@ -2,8 +2,15 @@ import React, {useState,useRef, useEffect} from "react";
 import styled from "styled-components";
 import Draggable from "react-draggable"
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
+import { useData } from "../context/contextapi";
+import { addDoc, collection, updateDoc, where } from "firebase/firestore";
+import { db } from "../firebase.config";
 
 export default function BuyPopup(props){
+  const {currentStock} = useData();
+
+  console.log(currentStock);
+    const {user,setPop} = useData();
     const quantityRef = useRef();
     const[y,change] = useState(0);
     useEffect(()=>{
@@ -20,20 +27,48 @@ function decrement(){
         change(quantityRef.current.value)
         }
     };
-    
+    const buyStock =()=>{
+      console.log("buying");
+      if(y*currentStock.value > user.balance){
+        alert("You don't have enough balance");
+        setPop(false);
+      }
+      else {
+        addDoc(collection(db,`team${user.uid}_stocks`),{
+          name:currentStock.name,
+          quantity:y,
+          value:currentStock.value,
+          total:y*currentStock.value
+        })
+        .then(e=>{
+          alert("Stock bought successfully");
+          setPop(false);
+          // updateDoc(collection(db,"teams",where("uid","==",user.uid)),{
+          //   balance:(user.balance - y*currentStock.value).toFixed(2)
+          // })
+          // db.collection("teams").doc(user.uid).update({balance:(user.balance - y*currentStock.value).toFixed(2)})
+          user.balance = (user.balance - y*currentStock.value).toFixed(2);
+
+        })
+        .catch(e=>{
+          console.error("Some error occured while buying a stock",e);
+          setPop(false);
+        })
+      }
+    }
     return (
       <Draggable>
         <BuyPopupStyle>
      <div className  = "overall">
-      <div className="closeDiv">
+      <div className="closeDiv" onClick={()=>setPop(false)}>
      <HighlightOffIcon className="close"/>
      </div>
      <div className="head">
      <div className = "headleft">
-        <div style={{marginBottom:'2vh'}}>{props.name}</div>
-        <div>LTP: Rs.{props.price}</div>
+        <div style={{marginBottom:'2vh'}}>{currentStock.name}</div>
+        <div>LTP: Rs.{currentStock.ltp}</div>
      </div>
-     <div className="headright">Acc Bal: Rs.{props.bal}</div> </div><br></br>
+     <div className="headright">Acc Bal: Rs.{user.balance}</div> </div><br></br>
      <div className="quantity">
        <div className = "qh"> <b>Quantity: </b> </div>
         <button onClick={increment} id = "inc">+</button>
@@ -41,10 +76,10 @@ function decrement(){
         <button onClick={decrement} id = "dec">-</button>
      </div>
      <div id = "result" >
-      <div className="quantityPrice"><span id = "c1"> Quanity:</span> <div id = "quant">{y}@{props.price}</div></div> <br></br>
-      <div className="quantityPrice"><span id = "c2">Price:</span> <div id = "price">{(y*props.price).toFixed(2)}</div>
+      <div className="quantityPrice"><span id = "c1"> Quanity:</span> <div id = "quant">{y}@{currentStock.value}</div></div> <br></br>
+      <div className="quantityPrice"><span id = "c2">Price:</span> <div id = "price">{(y*currentStock.value).toFixed(2)}</div>
      </div></div><br></br>
-     <div id = "tb">  <button id = "sub" type="submit">BUY</button> </div>
+     <div id = "tb">  <button id = "sub" type="submit" onClick={buyStock}>BUY</button> </div>
      </div>
      </BuyPopupStyle>
      </Draggable>

@@ -3,6 +3,7 @@ import { useState } from "react";
 import { createContext } from "react";
 import { useCookies } from "react-cookie";
 import { useHistory } from "react-router-dom";
+import BuyPopup from "../Components/BuyPopup";
 const AuthContext = createContext({})
 export function AuthProvider ({children}){
     const navigate = useHistory()
@@ -13,6 +14,9 @@ export function AuthProvider ({children}){
     const [stocks, setStocks] = useState(null)
     const [search, setSearch] = useState('')
     const [postBool, setPostBool] = useState(true)
+    const [pop, setPop] = useState(false)
+    // const [buyStock, setBuyStock] = useState(null);
+    const [currentStock, setCurrentStock] = useState(null)
     if(stocks){
     console.log(stocks);
         stocks.sort((a,b)=>{
@@ -35,8 +39,9 @@ export function AuthProvider ({children}){
     const logout =()=>{
         setUser(null)
         removeCookies('uid')
-        navigate('/login')
+        navigate.push('/login')
     }
+   
 return(
     <AuthContext.Provider 
     value={{
@@ -55,7 +60,11 @@ return(
         setSearch,
         cookies,
         postBool,
-        setPostBool
+        setPostBool,
+        pop,
+        setPop,
+        currentStock,
+        setCurrentStock
     }}
     >
         {children}
