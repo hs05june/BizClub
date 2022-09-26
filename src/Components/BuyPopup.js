@@ -55,7 +55,8 @@ function decrement(){
 const BuyPopupStyle = styled.div`
   position: absolute;
   margin:auto;
-  user-select: none;
+  z-index:600;
+  // user-select: none;
   *{
     box-sizing: border-box;
   }
