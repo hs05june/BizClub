@@ -12,7 +12,7 @@ const WatchlistItem = (props) => {
     <>
     <MarketItemStyled>
       <tr className='element' onClick={() => toggleShowBtn(!showBtn)}>
-                    <td style={{display:'inline-block',width:'24vw',textAlign:'left',fontWeight:'600'}}>{props.name}</td>
+                    <td style={{display:'inline-block',width:'25vw',textAlign:'left',fontWeight:'600'}}>{props.name}</td>
                     <td style={{display:'inline-block',width:'8vw',textAlign:'center'}}>{props.ltp}</td>
                     <td style={{display:'inline-block',width:'9.5vw',textAlign:'center',color:colour}}>{props.change}</td>
                     <td style={{display:'inline-block',width:'10vw',textAlign:'center',color:colour}}>{props.changePercent}</td>
@@ -20,7 +20,7 @@ const WatchlistItem = (props) => {
                     <td style={{display:'inline-block',width:'10vw',textAlign:'center'}}>{props.value}</td>
     </tr>
     </MarketItemStyled>
-    {showBtn && <Buy_RemoveWatchlist name={props.name} change={props.change} changePercent={props.changePercent} ltp={props.ltp} volume={props.volume} value={props.value} id ={props.id} use="REMOVE FROM WATCHLIST"/>}
+    {showBtn && <Buy_RemoveWatchlist name={props.name} change={props.change} changePercent={props.changePercent} ltp={props.ltp} volume={props.volume} value={props.value} id ={props.id}use="REMOVE FROM WATCHLIST"/>}
     </>
   )
 }

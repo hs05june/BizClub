@@ -6,9 +6,15 @@ import VisibilityIcon from '@mui/icons-material/Visibility';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
+import { useData } from '../context/contextapi';
+import { signInWithEmailAndPassword } from 'firebase/auth';
+import { collection, getDocs, query, where } from 'firebase/firestore';
+import { auth, db } from '../firebase.config';
 
 const Login = (props) => {
   const [see, setSee] = useState(false)
+  // const {setUidCookie,setUser,setUid,navigate}= useData();
+  const {setUidCookie,setUser,setUid,navigate}= useData();
   const emailRef = useRef("");
   const passRef = useRef("");
   const handleSubmit = (e) =>{
@@ -18,6 +24,24 @@ const Login = (props) => {
     if(email === "" || password === ""){
       alert("Please fill all the fields")
     }
+    signInWithEmailAndPassword(auth,email,password)
+    .then(async(e)=>{
+      console.log(e);
+      const uid  = e.user.uid;
+      const q1 = query(collection(db,"teams"),where("uid","==",uid));
+      const docs = await getDocs(q1);
+      // console.log(docs.docs[0].data());
+      setUidCookie(uid);
+      setUid(uid);
+      setUser(docs.docs[0].data());
+      setTimeout(() => {
+        navigate.push('/');
+      }, 2000);
+      
+    })
+    .catch(r=>{
+      console.log(r);
+    })
     
   }
   return (

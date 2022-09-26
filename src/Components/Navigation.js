@@ -4,9 +4,13 @@ import SearchIcon from '@mui/icons-material/Search';
 import PlayArrowIcon from '@mui/icons-material/PlayArrow';
 import ArrowDropDownIcon from '@mui/icons-material/ArrowDropDown';
 import ListItem from './ListItem';
+import { useData } from '../context/contextapi';
+// import SeacrhIc
 
 
 function Navigation() {
+    const {stocks} = useData()
+
     return (
         <NavigationStyled>
             <form  className="avatar">
@@ -20,18 +24,13 @@ function Navigation() {
                     <ArrowDropDownIcon className='down'/>
                 </div>
                 <div className='lists'>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={false} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
+                {
+                        stocks &&
+                        stocks.map((stock)=>{
+                            return<ListItem title={stock.name} key={stock.id} increase={Number(stock.price) >=Number(stock.prevPrice)} value={Number(stock.price)} subtitle="NSE" change={Math.abs(Number(stock.price) - Number(stock.prevPrice))} percent={stock.prevPrice!=0 ? Number(((Math.abs(stock.price - stock.prevPrice)/stock.prevPrice) *100).toFixed(2)) : 0}/>
+                        }
+                        )
+                    }
             </div>
             </div>
 
