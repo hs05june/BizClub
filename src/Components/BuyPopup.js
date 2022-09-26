@@ -37,7 +37,7 @@ function decrement(){
      <div className="quantity">
        <div className = "qh"> <b>Quantity: </b> </div>
         <button onClick={increment} id = "inc">+</button>
-        <input id = "input" ref={quantityRef} onChange={(e)=>change(e.target.value)} style={{color:'black'}}/>
+        <input id = "input" ref={quantityRef} onChange={(e)=>change(e.target.value)} style={{color:'black',borderRadius:'3px',border:'1px black solid'}}/>
         <button onClick={decrement} id = "dec">-</button>
      </div>
      <div id = "result" >
