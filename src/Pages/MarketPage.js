@@ -21,30 +21,6 @@ function MarketPage() {
                     <th style={{width:'10vw'}}>Value (in Cr.)</th>
                 </tr>
                 <div className='tableContent'>
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
                 </div>
             </table>       
          </ResumePageStyled>

@@ -20,18 +20,7 @@ function Navigation() {
                     <ArrowDropDownIcon className='down'/>
                 </div>
                 <div className='lists'>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={false} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
-                <ListItem title="abcd" increase={true} value={330.30} subtitle="NSE" change={4.25} percent={1.30}/>
+                
             </div>
             </div>
 

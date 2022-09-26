@@ -14,6 +14,7 @@ const NavBar = (props) => {
   return (
     <NavBarStyled>
         <div className='nav_left'>
+   <img src="logo1.jpg" height="50%" width="10%" className="nav_logo"/>
    <div> Nifty Small Cap</div>
    <div>4205.90</div>
    <div
@@ -32,9 +33,6 @@ const NavBar = (props) => {
    /></span></div>
         </div>
         <div className='nav_right'>
-<div className='nav_logo'>
-logo
-</div>
 <div className='nav_links'>
     <ul>
        <li><NavLink to="/" exact>
@@ -90,6 +88,7 @@ const NavBarStyled = styled.nav`
     background: var(--background-nav-color);
     align-items: center;
     padding: 2vh 3vw;
+    padding-left:1vw;
     cursor: default;
     position : sticky;
     top:0;
@@ -97,8 +96,12 @@ const NavBarStyled = styled.nav`
     z-index:100;
     // width:95vw;
     overflow: hidden;
+    .nav_logo{
+        border-radius:50%;
+        box-shadow: 0px 0px 3px 3px var(--logo-shadow);
+    }
 .nav_left{
-    width: 30%;
+    width: 40%;
     height: 10vh;
     display: flex;
     justify-content: space-around;
@@ -106,7 +109,7 @@ const NavBarStyled = styled.nav`
     align-items: center;
 }
 .nav_right{
-    width: 70%;
+    width: 60%;
     /* background: green; */
     height: 10vh;
     display: flex;

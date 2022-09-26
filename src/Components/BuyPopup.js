@@ -46,7 +46,6 @@ function decrement(){
      </div></div><br></br>
      <div id = "tb">  <button id = "sub" type="submit">BUY</button> </div>
      </div>
-     {/* </Draggable> */}
      </BuyPopupStyle>
      </Draggable>
     );
@@ -56,6 +55,8 @@ const BuyPopupStyle = styled.div`
   position: absolute;
   margin:auto;
   z-index:600;
+  top:50%;
+  left:50%;
   // user-select: none;
   *{
     box-sizing: border-box;
