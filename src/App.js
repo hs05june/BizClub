@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import Sidebar from "./Components/Sidebar";
 import styled from 'styled-components';
+import AboutPage from "./Pages/AboutPage";
 import HomePage from "./Pages/HomePage";
 import MarketPage from './Pages/MarketPage';
 import OrdersPage from "./Pages/OrdersPage";
@@ -15,6 +16,7 @@ import NavBar from "./Pages/NavBar";
 import Login from "./Components/Login";
 import PortfoliosPage from "./Pages/PortfoliosPage";
 import Watchlist from "./Pages/WatchList";
+// import AboutPage from "./Pages/AboutPage";
 
 
 function App() {
@@ -87,8 +89,8 @@ function App() {
             <Route path="/orders" exact>
                <OrdersPage />
             </Route>
-            <Route path="/contact" exact>
-              
+            <Route path="/about" exact>
+              <AboutPage/>
             </Route>
           </Switching>
 

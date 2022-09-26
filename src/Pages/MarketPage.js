@@ -54,8 +54,8 @@ const ResumePageStyled = styled.div`
 width:100%;
 .avatar{
     width:90%;
-    margin: 2vh 0;
-    margin-left:6vw;
+    // margin-top:3vh;
+    // margin-left:6vw;
     height:6vh;
     padding:10px;
     padding-left:15px;
@@ -64,6 +64,9 @@ width:100%;
     font-size:1.3vw;
     display:flex;
     flex-direction: row;
+    position:sticky;
+    top:12vh;
+    left:25vw;
     &:focus{
         box-shadow:0 0 2px 2px #99D5FF;
     }
@@ -82,7 +85,7 @@ width:100%;
     // overflow:auto;
 }
 .portTable th, .portTable td{
-    padding-left:1.5vw;
+    padding-left:1.7vw;
 }
 font-size:1.2vw;
 .heading{
@@ -96,12 +99,13 @@ font-size:1.2vw;
     box-shadow:0px -1px 4px rgba(0,0,0,0.5);
     margin-bottom:0.5vh;
     z-index:10;
-    top:10.1vh;
     position:sticky;
+    top:20vh;
 }
 .tableContent{
     overflow-y:scroll;
     height:83vh;
+    padding-top:4.5vh;
     &::-webkit-scrollbar {
         display: none;
       }

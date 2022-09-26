@@ -20,7 +20,7 @@ const WatchlistItem = (props) => {
                     <td style={{display:'inline-block',width:'10vw',textAlign:'center'}}>{props.value}</td>
     </tr>
     </MarketItemStyled>
-    {showBtn && <Buy_RemoveWatchlist name={props.name} change={props.change} changePercent={props.changePercent} ltp={props.ltp} volume={props.volume} value={props.value} id ={props.id}use="REMOVE FROM WATCHLIST"/>}
+    {showBtn && <Buy_RemoveWatchlist name={props.name} change={props.change} changePercent={props.changePercent} ltp={props.ltp} volume={props.volume} value={props.value} id ={props.id} use="REMOVE FROM WATCHLIST"/>}
     </>
   )
 }
