@@ -90,6 +90,8 @@ const BuyPopupStyle = styled.div`
   position: absolute;
   margin:auto;
   z-index:600;
+  top:50%;
+  left:50%;
   // user-select: none;
   *{
     box-sizing: border-box;

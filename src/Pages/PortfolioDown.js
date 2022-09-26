@@ -23,26 +23,6 @@ function PortfolioDown() {
                     <p style={{fontFamily:'Inter',color:'var(--text-color)',fontWeight:'600',alignContent:'center',marginLeft:'10vw',fontSize:'1.5vw'}}>Get ready to start investing.</p>
                     </div>
                 </div>
-                {/* <tr className='element'>
-                    <td style={{display:'inline-block',width:'18.7vw',textAlign:'left',fontWeight:'600'}}>Bharat Petroleum</td>
-                    <td style={{display:'inline-block',width:'7vw',textAlign:'center'}}>4</td>
-                    <td style={{display:'inline-block',width:'9vw',textAlign:'center'}}></td>
-                    <td style={{display:'inline-block',width:'10vw',textAlign:'center'}}>330.30</td>
-                    <td style={{display:'inline-block',width:'10vw',textAlign:'center'}}>1,321.20</td>
-                    <td style={{display:'inline-block',width:'9vw',textAlign:'center'}}>330.30</td>
-                    <td style={{display:'inline-block',width:'6vw',textAlign:'center'}}>17.00</td>
-                    <td style={{display:'inline-block',width:'6vw',textAlign:'center'}}>1.7</td>
-                </tr>
-                <tr className='element'>
-                    <td style={{display:'inline-block',width:'18.7vw',textAlign:'left',fontWeight:'600'}}>Bharat Petroleum</td>
-                    <td style={{display:'inline-block',width:'7vw',textAlign:'center'}}>4</td>
-                    <td style={{display:'inline-block',width:'9vw',textAlign:'center'}}></td>
-                    <td style={{display:'inline-block',width:'10vw',textAlign:'center'}}>330.30</td>
-                    <td style={{display:'inline-block',width:'10vw',textAlign:'center'}}>1,321.20</td>
-                    <td style={{display:'inline-block',width:'9vw',textAlign:'center'}}>330.30</td>
-                    <td style={{display:'inline-block',width:'6vw',textAlign:'center'}}>17.00</td>
-                    <td style={{display:'inline-block',width:'6vw',textAlign:'center'}}>1.7</td>
-                 </tr> */}
                 </div>
             </table>
         </AboutStyled>

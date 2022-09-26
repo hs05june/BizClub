@@ -3,8 +3,6 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import GlobalStyle from './Pages/styles/GlobalStyle';
-import Draggable from 'react-draggable'
-import { AuthProvider } from './context/contextapi';
 
 
 ReactDOM.render(
@@ -14,6 +12,9 @@ ReactDOM.render(
     <AuthProvider>
       <App />
     </AuthProvider>
+=======
+      <App />
+
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')
