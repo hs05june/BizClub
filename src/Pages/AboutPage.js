@@ -11,10 +11,10 @@ export default function AboutPage() {
         bal : "8,52,144"
     })
   return (
-    <Draggable onStart={this.onStart}>
-    <div style={{marginLeft:'30vw'}}>
+    // <Draggable>
+    <>
         <BuyPopup {...description}/>
-    </div>
-    </Draggable>
+        </>
+    // </Draggable>
   )
 }

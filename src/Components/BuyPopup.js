@@ -1,6 +1,7 @@
 import React, {useState,useRef, useEffect} from "react";
 import styled from "styled-components";
 import Draggable from "react-draggable"
+import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 
 export default function BuyPopup(props){
     const quantityRef = useRef();
@@ -21,9 +22,12 @@ function decrement(){
     };
     
     return (
+      <Draggable>
         <BuyPopupStyle>
-          
      <div className  = "overall">
+      <div className="closeDiv">
+     <HighlightOffIcon className="close"/>
+     </div>
      <div className="head">
      <div className = "headleft">
         <div style={{marginBottom:'2vh'}}>{props.name}</div>
@@ -33,25 +37,46 @@ function decrement(){
      <div className="quantity">
        <div className = "qh"> <b>Quantity: </b> </div>
         <button onClick={increment} id = "inc">+</button>
-        <input id = "input" ref={quantityRef} onChange={(e)=>change(e.target.value)}/>
+        <input id = "input" ref={quantityRef} onChange={(e)=>change(e.target.value)} style={{color:'black'}}/>
         <button onClick={decrement} id = "dec">-</button>
      </div>
      <div id = "result" >
       <div className="quantityPrice"><span id = "c1"> Quanity:</span> <div id = "quant">{y}@{props.price}</div></div> <br></br>
-      <div className="quantityPrice"><span id = "c2">Price:</span> <div id = "price">{parseInt(y*props.price)}</div>
+      <div className="quantityPrice"><span id = "c2">Price:</span> <div id = "price">{(y*props.price).toFixed(2)}</div>
      </div></div><br></br>
      <div id = "tb">  <button id = "sub" type="submit">BUY</button> </div>
      </div>
      {/* </Draggable> */}
      </BuyPopupStyle>
+     </Draggable>
     );
 }
 
 const BuyPopupStyle = styled.div`
-*{
+  position: absolute;
+  margin:auto;
+  user-select: none;
+  *{
     box-sizing: border-box;
   }
-  
+  .closeDiv{
+    position:relative;
+    width:100%;
+    text-align:right;
+     background:var(--buy-popup-head);
+     padding:2px;
+    //  margin:0 -3px;
+    height:0vh;
+  }
+  .close{
+    color:red;
+    right:0;
+    // top:1vw;
+    &:hover{
+      cursor:pointer;
+      color:rgb(253, 70, 70);
+    }
+  }
   .App{
     position: relative;
     margin: 0 auto;
@@ -71,38 +96,42 @@ const BuyPopupStyle = styled.div`
     position : relative;
     width : 30vw;
     height: 25vw;
-  box-shadow: -4px -4px 4px rgba(0, 0, 0, 0.25), 4px 4px 4px rgba(0, 0, 0, 0.25);
-  background-color: #ffffff;
+    box-shadow: -4px -4px 4px var(--buy-pop-shadow), 4px 4px 4px var(--buy-pop-shadow);
+    background-color:var(--background-nav-color);
+    border-radius:4px;
   }
   .head{
     display: flex;
     height:10vh;
     justify-content: space-around; width: 100%;  border: 1px solid rgba(0, 0, 0, 0.1);
-    background: #F1F6FE;
+    background: var(--buy-popup-head);
     font-family: 'Inter';
     font-style: normal;
     font-weight: 500;
     font-size: 1.2vw;
     line-height: 15px;
-    color: #3C4A57;
-  padding-top: 2vh;
+    // color: #3C4A57;
+    color:var(--buypopup-text-color);
+    padding-top: 2vh;
   }
-  .headright{ background: #F1F6FE;
+  .headright{ 
+    background: var(--buy-popup-head);
     position: relative;
     margin-top: 2% ;
     font-family: 'Inter';
     font-style: normal;
-  font-weight: 400;
-  line-height: 15px;
-  color: rgba(60, 74, 87, 0.8);
-  padding-bottom: 5px;
-  font-size: 1vw;
-    }
-    #b1,#b2{
-      display: inline-block;
-      width: 50%;
-      height: 30px;
-      border: none;
+    font-weight: 400;
+    line-height: 15px;
+    // color: rgba(60, 74, 87, 0.8);
+    color:var(--buypopup-text-color);
+    padding-bottom: 5px;
+    font-size: 1vw;
+  }
+  #b1,#b2{
+    display: inline-block;
+    width: 50%;
+    height: 30px;
+    border: none;
       position: relative;
     }
     #b1 button,#b2 button{
@@ -111,16 +140,18 @@ const BuyPopupStyle = styled.div`
     .quantity{
       padding:0 1vw;
       display: flex;
+      color:var(--buypopup-text-color);
     }
-  
+    
     #inc{
       margin-left: 47%;
       &:hover{cursor: pointer;}
     }
     #dec{
       &:hover{cursor: pointer;}
+      // color:var(--buypopup-text-color);
     }
-   .overall #sub{
+    .overall #sub{
       text-align: center;
       width: 90%;
       bottom : 0px;
@@ -131,6 +162,7 @@ const BuyPopupStyle = styled.div`
       border : none;
       border-radius: 5px;
       color: aliceblue;
+      // color:var(--buypopup-text-color);
       &:hover{
         background-color:#009d78;
         cursor: pointer;
@@ -139,6 +171,7 @@ const BuyPopupStyle = styled.div`
     .buy{
       position: relative;
       top: 4.5%;
+      color:var(--buypopup-text-color);
     }
     #b1 button{
       background-color:  #0CAE88;
@@ -157,6 +190,7 @@ const BuyPopupStyle = styled.div`
       position: relative;
       top: 15%;
       width:30vw;
+      color:var(--buypopup-text-color);
     }
     #tb button{
       height: 10%;
@@ -167,13 +201,14 @@ const BuyPopupStyle = styled.div`
       background-color: aliceblue;
       border: #F1F6FE;
       text-align: center;
+      color:var(--buypopup-text-color);
     }
     #c1,#quant{
       display: inline-block;
     }
     #c1,#c2,.qh{
       padding-left: 2%;
-      color: black;
+      color:var(--buypopup-text-color);
       font-weight: 500;
     }
     .quantityPrice{
@@ -183,5 +218,7 @@ const BuyPopupStyle = styled.div`
       flex-direction: row;
       align-items: center;
       justify-content: space-between;
+      color:var(--buypopup-text-color);
     }
-`
+    color:var(--buypopup-text-color);
+    `

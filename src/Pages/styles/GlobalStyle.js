@@ -57,9 +57,15 @@ const GlobalStyle = createGlobalStyle`
     --text-color:rgba(0,0,0,0.5);
     --item-background:#FEFBFB;
     --form-input-background:#F1F1F1;
+    --buypopup-text-color:black;
+    --buy-popup-head:#F1F6FE;
+    --buy-pop-shadow:rgba(0, 0, 0, 0.3);
 }
 
 .dark-theme{
+    --buy-pop-shadow:rgba(255, 255, 255, 0.7);
+    --buy-popup-head:#2C2C2C;
+    --buypopup-text-color:#ffffff;
     --form-input-background:#10121A;
     --item-background:#2C2C2C;
     --text-color:rgba(255,255,255,0.7);
