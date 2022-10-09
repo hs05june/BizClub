@@ -83,7 +83,7 @@ const Login = (props) => {
           <div className="btn">
         <button onClick={handleSubmit}>Login</button>
           </div>
-          <Link style={{marginTop:'2em'}} to="/" >
+          <Link  style={{marginTop:'2em'}} to="/login/resetpassword" >
         Reset Password
           </Link>
         </div>
@@ -108,12 +108,13 @@ const LoginStyles = styled.div`
  flex-direction: column;
  padding: 2rem 0.3rem;
  border-radius: 0.5rem;
-  padding-top:1rem;
+ padding-top:1rem;
 }
 .logo img{
   margin-bottom:0.5em;
   border-radius:5px;
   box-shadow: 0px 0px 3px 3px rgba(255,255,255,0.6);
+ 
 }
 .input {
 width: 80%;
