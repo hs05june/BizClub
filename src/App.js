@@ -22,6 +22,7 @@ import { collection, getDocs, query, where } from "firebase/firestore";
 import { useHistory } from "react-router";
 import { db } from "./firebase.config";
 import BuyPopup from "./Components/BuyPopup";
+import ResetPassword from "./Components/ResetPassword";
 
 function App() {
   const [theme, setTheme] = useState('dark-theme');
@@ -76,6 +77,9 @@ function App() {
         <Route path='/'>
         <NavBar checked={checked} themeToggler={themeToggler}/>
         <Sidebar navToggle={navToggle} />
+        </Route>
+        <Route path="/login/resetpassword" exact>
+        <ResetPassword/>
         </Route>
       </Switching>
        
