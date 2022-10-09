@@ -83,7 +83,7 @@ const Login = (props) => {
           <div className="btn">
         <button onClick={handleSubmit}>Login</button>
           </div>
-          <Link to="/" >
+          <Link to="/login/resetpassword" >
         Reset Password
           </Link>
         </div>
