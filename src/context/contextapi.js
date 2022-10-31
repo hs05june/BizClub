@@ -15,7 +15,6 @@ export function AuthProvider ({children}){
     const [search, setSearch] = useState('')
     const [postBool, setPostBool] = useState(true)
     const [pop, setPop] = useState(false)
-    // const
     const [currentStock, setCurrentStock] = useState(null)
     if(stocks){
     console.log(stocks);
