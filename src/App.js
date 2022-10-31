@@ -23,7 +23,6 @@ import { useHistory } from "react-router";
 import { db } from "./firebase.config";
 import BuyPopup from "./Components/BuyPopup";
 import ResetPassword from "./Components/ResetPassword";
-// kdnknfmb jkihihjt ihitrkint ijoinjktgn
 
 function App() {
   const [theme, setTheme] = useState('dark-theme');
