@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from 'react-router-dom';
 import App from './App';
 import GlobalStyle from './Pages/styles/GlobalStyle';
-
+import {AuthProvider} from './context/contextapi'
 
 ReactDOM.render(
   <React.StrictMode>
@@ -12,9 +12,6 @@ ReactDOM.render(
     <AuthProvider>
       <App />
     </AuthProvider>
-=======
-      <App />
-
     </BrowserRouter>
   </React.StrictMode>,
   document.getElementById('root')

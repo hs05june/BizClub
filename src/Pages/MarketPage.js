@@ -21,6 +21,19 @@ function MarketPage() {
                     <th style={{width:'10vw'}}>Value (in Cr.)</th>
                 </tr>
                 <div className='tableContent'>
+                    <MarketItem name="anjhu" ltp="12" increase={true} change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
+                    <MarketItem name="anjhu" ltp="12" change={12} changePercent={13} value={12} volume={989}/>
                 </div>
             </table>       
          </ResumePageStyled>

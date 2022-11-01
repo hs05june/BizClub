@@ -25,6 +25,18 @@ function Navigation() {
                 </div>
                 <div className='lists'>
 
+                    {/* {stocks.map((stock)=>{
+
+                    })} */}
+                    <ListItem title="abcd" value={10} subtitle="acd" change={1} percent={1} increase={true}/>
+                    <ListItem title="abcd" value={10} subtitle="acd" change={1} percent={1} increase={true}/>
+                    <ListItem title="abcd" value={10} subtitle="acd" change={1} percent={1} increase={true}/>
+                    <ListItem title="abcd" value={10} subtitle="acd" change={1} percent={1} increase={true}/>
+                    <ListItem title="abcd" value={10} subtitle="acd" change={1} percent={1} increase={true}/>
+                    <ListItem title="abcd" value={10} subtitle="acd" change={1} percent={1} increase={true}/>
+                    <ListItem title="abcd" value={10} subtitle="acd" change={1} percent={1} increase={true}/>
+                    <ListItem title="abcd" value={10} subtitle="acd" change={1} percent={1} increase={true}/>
+
             </div>
             </div>
 
