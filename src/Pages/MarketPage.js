@@ -108,10 +108,12 @@ font-size:1.2vw;
     box-shadow:0px -1px 4px rgba(0,0,0,0.5);
     margin-bottom:0.5vh;
     z-index:10;
-    position:sticky;
-    top:20vh;
+    position:absolute;
+    top:10vh;
 }
 .tableContent{
+    position:absolute;
+    top:12vh;
     overflow-y:scroll;
     height:83vh;
     padding-top:4.5vh;

@@ -16,14 +16,13 @@ function Watchlist() {
     const getWatchList =async()=>{
         const q1 = query(collection(db,`watchlist_${uid}`));
         const querySnapshot = await getDocs(q1);
-        // console.log(querySnapshot.docs.map((e)=>({...e.data(),id:e.id})));
         setWatchlist(querySnapshot.docs.map((e)=>({...e.data(),id:e.id})));
     }
     return (
             <ResumePageStyled>
                 <table className='portTable'>
                 <tr className='heading'>
-                    <th style={{width:'25vw',textAlign:'left'}}>Name</th>
+                    <th style={{width:'22vw',textAlign:'left'}}>Name</th>
                     <th style={{width:'7vw'}}>LTP</th>
                     <th style={{width:'9vw'}}>Change</th>
                     <th style={{width:'10vw'}}>Change %</th>
@@ -65,11 +64,13 @@ font-size:1.2vw;
     box-shadow:0px -1px 4px rgba(0,0,0,0.5);
     margin-bottom:0.5vh;
     z-index:10;
-    top:10.1vh;
-    position:sticky;
+    top:6.3vh;
+    position:absolute;
 }
 .tableContent{
     overflow-y:scroll;
+    position:absolute;
+    top:11vh;
     height:83vh;
     &::-webkit-scrollbar {
         display: none;

@@ -6,20 +6,21 @@ import { useData } from "../context/contextapi";
 import { addDoc, collection, doc, updateDoc, where } from "firebase/firestore";
 import { db } from "../firebase.config";
 
-export default function BuyPopup(props){
+export default function SellPopup(props){
   const {currentStock} = useData();
 
   console.log(currentStock);
-    const {user,setPop} = useData();
+    const {user,setPop1,pop1} = useData();
     const quantityRef = useRef();
     const[y,change] = useState(0);
     useEffect(()=>{
       quantityRef.current.value = 0;
     },[])
+
+    let view = pop1 ? 'block':'none';
     function increment(){
       quantityRef.current.value = parseInt(quantityRef.current.value)+1;
       change(quantityRef.current.value)
-      
 }
 function decrement(){
     if(quantityRef.current.value > 0){
@@ -27,11 +28,11 @@ function decrement(){
         change(quantityRef.current.value)
         }
     };
-    const buyStock =()=>{
-      console.log("buying");
-      if(y*currentStock.value > user.balance){
-        alert("You don't have enough balance");
-        setPop(false);
+    const sellStock =()=>{
+      console.log("selling");
+      if(y > currentStock.quantity){
+        alert("You don't have enough stock");
+        setPop1(false);
       }
       else {
         console.log(currentStock);
@@ -44,28 +45,31 @@ function decrement(){
           changePercent:currentStock.changePercent,
           ltp:currentStock.ltp,
           volume:currentStock.volume,
+
         })
         .then(e=>{
           alert("Stock bought successfully");
-          setPop(false);
-          const docRef =doc(db,"teams",where("uid","==",user.uid))
-          updateDoc(docRef,{
-            balance:(user.balance - y*currentStock.value).toFixed(2)
-          })
-          user.balance =  ((user.balance - y*currentStock.value).toFixed(2)).toString();
+          setPop1(false);
+        //   const docRef =doc(db,"teams",where("uid","==",user.uid))
+        //   updateDoc(docRef,{
+        //     balance:(user.balance - y*currentStock.value).toFixed(2)
+        //   })
+        //   // db.collection("teams").doc(user.uid).update({balance:(user.balance - y*currentStock.value).toFixed(2)})
+        //   user.balance =  ((user.balance - y*currentStock.value).toFixed(2)).toString();
 
         })
         .catch(e=>{
-          console.error("Some error occured while buying a stock",e);
-          setPop(false);
+          console.error("Some error occured while selling a stock",e);
+          setPop1(false);
         })
       }
     }
     return (
       <Draggable>
+        {/* <div style={{display:view}}> */}
         <BuyPopupStyle>
      <div className  = "overall">
-      <div className="closeDiv" onClick={()=>setPop(false)}>
+      <div className="closeDiv" onClick={()=>setPop1(false)}>
      <HighlightOffIcon className="close"/>
      </div>
      <div className="head">
@@ -75,7 +79,7 @@ function decrement(){
      </div>
      <div className="headright">Acc Bal: Rs.{user.balance}</div> </div><br></br>
      <div className="quantity">
-       <div className = "qh"> <b>Quantity: </b> </div>
+       <div className = "qh"> <b>Quantity: {currentStock.quantity}</b> </div>
         <button onClick={increment} id = "inc">+</button>
         <input id = "input" ref={quantityRef} onChange={(e)=>change(e.target.value)} style={{color:'black',borderRadius:'3px',border:'1px black solid'}}/>
         <button onClick={decrement} id = "dec">-</button>
@@ -84,9 +88,10 @@ function decrement(){
       <div className="quantityPrice"><span id = "c1"> Quanity:</span> <div id = "quant">{y}@{currentStock.value}</div></div> <br></br>
       <div className="quantityPrice"><span id = "c2">Price:</span> <div id = "price">{(y*currentStock.value).toFixed(2)}</div>
      </div></div><br></br>
-     <div id = "tb">  <button id = "sub" type="submit" onClick={buyStock}>BUY</button> </div>
+     <div id = "tb">  <button id = "sub" type="submit" onClick={()=>sellStock()}>SELL</button> </div>
      </div>
      </BuyPopupStyle>
+     {/* </div> */}
      </Draggable>
     );
 }
@@ -105,8 +110,9 @@ const BuyPopupStyle = styled.div`
     position:relative;
     width:100%;
     text-align:right;
-    background:var(--buy-popup-head);
-    padding:2px;
+     background:var(--buy-popup-head);
+     padding:2px;
+    //  margin:0 -3px;
     height:0vh;
   }
   .close{

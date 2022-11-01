@@ -3,8 +3,9 @@ import BuySell from '../Components/BuySell';
 import styled from 'styled-components';
 import { useState } from 'react';
 import Buy_RemoveWatchlist from '../Components/Buy_RemoveWatchlist';
+import Sell from './Sell';
 
-const WatchlistItem = (props) => {
+const Portfolio_Item = (props) => {
     const [showBtn,toggleShowBtn] = useState(false);
     const colour = props.increase ? '#5CA818' : '#D8601D';
   return (
@@ -20,7 +21,7 @@ const WatchlistItem = (props) => {
                     <td style={{display:'inline-block',width:'10vw',textAlign:'center'}}>{props.value}</td>
     </tr>
     </MarketItemStyled>
-    {showBtn && <Buy_RemoveWatchlist name={props.name} change={props.change} changePercent={props.changePercent} ltp={props.ltp} volume={props.volume} value={props.value} id ={props.id}use="REMOVE FROM WATCHLIST"/>}
+    {showBtn && <Sell name={props.name} change={props.change} changePercent={props.changePercent} ltp={props.ltp} volume={props.volume} value={props.value} id ={props.id} use="REMOVE FROM WATCHLIST"/>}
     </>
   )
 }
@@ -45,4 +46,4 @@ const MarketItemStyled = styled.div`
     width: 85vw;
 }
 `
-export default WatchlistItem
+export default Portfolio_Item

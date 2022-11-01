@@ -16,6 +16,7 @@ export function AuthProvider ({children}){
     const [search, setSearch] = useState('')
     const [postBool, setPostBool] = useState(true)
     const [pop, setPop] = useState(false)
+    const [pop1, setPop1] = useState(false)
     const [currentStock, setCurrentStock] = useState(null)
     if(stocks){
     console.log(stocks);
@@ -62,7 +63,9 @@ return(
         postBool,
         setPostBool,
         pop,
+        pop1,
         setPop,
+        setPop1,
         currentStock,
         setCurrentStock,
         userStocks,

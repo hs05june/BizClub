@@ -78,8 +78,8 @@ const PortfolioUp = () => {
 const Upstyles = styled.div`
     width:95%;
     margin-left:5%;
-    position:sticky;
-    top:11.5vh;
+    position:absolute;
+    top:3vh;
     z-index:100;
     margin-bottom:1vh;
   .main {

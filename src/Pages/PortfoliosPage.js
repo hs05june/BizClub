@@ -5,6 +5,9 @@ import { useData } from '../context/contextapi'
 import { collection, getDocs, query } from 'firebase/firestore'
 import { db } from '../firebase.config'
 import { useEffect } from 'react'
+import WatchlistItem from './WatchlistItem'
+// import styled from '@emotion/styled/types/base'
+import styled from 'styled-components'
 
 const PortfoliosPage = () => {
   const {userStocks,setUserStocks,user} = useData()
@@ -25,15 +28,17 @@ const PortfoliosPage = () => {
   return (
     <div>
       <PortfolioUp/>
-    {/* {
-      userStocks ?
-      <div>
 
-      </div>
-    } */}
-      <PortfolioDown/>
+                <PortfolioDown/>
     </div>
   )
 }
 
+const tableStyle = styled.div`
+  .tableContent1{
+    width: 100%;
+    height: 60%;
+
+  }
+`
 export default PortfoliosPage
