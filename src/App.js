@@ -18,10 +18,10 @@ import PortfoliosPage from "./Pages/PortfoliosPage";
 import Watchlist from "./Pages/WatchList";
 import { useData } from "./context/contextapi";
 import { collection, getDocs, query, where } from "firebase/firestore";
-// import AboutPage from "./Pages/AboutPage";
 import { useHistory } from "react-router";
 import { db } from "./firebase.config";
 import BuyPopup from "./Components/BuyPopup";
+import ResetPassword from "./Components/ResetPassword";
 
 function App() {
   const [theme, setTheme] = useState('dark-theme');
@@ -42,12 +42,10 @@ function App() {
   const getUserData = async() =>{
     const q1 = query(collection(db,"teams"),where("uid","==",uid));
     const docs = await getDocs(q1);
-    // console.log(docs.docs[0].data());
     setUser(docs.docs[0].data());
     
   }
   const getStocks = async ()=>{
-    // const q1 = query(db(collection,"stocks"));
     const q1 = query(collection(db,"stocks"));
     const docs = await getDocs(q1);
     console.log(docs.docs[0].data());
@@ -77,27 +75,10 @@ function App() {
         <NavBar checked={checked} themeToggler={themeToggler}/>
         <Sidebar navToggle={navToggle} />
         </Route>
+        <Route path="/login/resetpassword" exact>
+        <ResetPassword/>
+        </Route>
       </Switching>
-       
-
-        {/* <div className="theme">
-          <div className="light-dark-mode">
-              <div className="left-content">
-                <Brightness4Icon />
-              </div>
-              <div className="right-content">
-                 <Switch
-                  value=""
-                  checked={checked}
-                  inputProps={{ 'aria-label': '' }}
-                  size="medium"
-                  onClick={themeToggler}
-                  
-                /> 
-              </div>
-            </div>
-        </div> */}
-
        <div className="ham-burger-menu">
           <IconButton onClick={() => setNavToggle(!navToggle)}>
               <MenuIcon />
