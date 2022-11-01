@@ -9,6 +9,7 @@ export function AuthProvider ({children}){
     const navigate = useHistory()
     const [userPosts, setUserPosts] = useState(null)
     const [user, setUser] = useState(null)
+    const [userStocks, setUserStocks] = useState(null)
     const [cookies,setCookies,removeCookies] = useCookies()
     const [uid, setUid] = useState(cookies.uid)
     const [stocks, setStocks] = useState(null)
@@ -63,7 +64,9 @@ return(
         pop,
         setPop,
         currentStock,
-        setCurrentStock
+        setCurrentStock,
+        userStocks,
+        setUserStocks
     }}
     >
         {children}

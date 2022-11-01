@@ -10,7 +10,12 @@ import styled from 'styled-components';
 import Brightness4Icon from '@mui/icons-material/Brightness4';
 import NotificationsActiveIcon from '@mui/icons-material/NotificationsActive';
 import Switch from '@mui/material/Switch'
+import { useData } from '../context/contextapi';
 const NavBar = (props) => {
+    const {user} = useData()
+    if(user){
+        console.log("The user is",user);
+    }
   return (
     <NavBarStyled>
         <div className='nav_left'>
@@ -60,7 +65,7 @@ const NavBar = (props) => {
     />
     <span>Hi <span style={{
         fontWeight:"bold"
-    }}>user</span></span>
+}}>{user ? user.name:"User"}</span></span>
 <Avatar />
 </div>
         </div>

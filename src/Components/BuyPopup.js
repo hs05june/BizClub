@@ -3,7 +3,7 @@ import styled from "styled-components";
 import Draggable from "react-draggable"
 import HighlightOffIcon from '@mui/icons-material/HighlightOff';
 import { useData } from "../context/contextapi";
-import { addDoc, collection, updateDoc, where } from "firebase/firestore";
+import { addDoc, collection, doc, updateDoc, where } from "firebase/firestore";
 import { db } from "../firebase.config";
 
 export default function BuyPopup(props){
@@ -43,11 +43,12 @@ function decrement(){
         .then(e=>{
           alert("Stock bought successfully");
           setPop(false);
-          // updateDoc(collection(db,"teams",where("uid","==",user.uid)),{
-          //   balance:(user.balance - y*currentStock.value).toFixed(2)
-          // })
+          const docRef =doc(db,"teams",where("uid","==",user.uid))
+          updateDoc(docRef,{
+            balance:(user.balance - y*currentStock.value).toFixed(2)
+          })
           // db.collection("teams").doc(user.uid).update({balance:(user.balance - y*currentStock.value).toFixed(2)})
-          user.balance = (user.balance - y*currentStock.value).toFixed(2);
+          user.balance =  ((user.balance - y*currentStock.value).toFixed(2)).toString();
 
         })
         .catch(e=>{

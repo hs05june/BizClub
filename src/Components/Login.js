@@ -30,7 +30,7 @@ const Login = (props) => {
       const uid  = e.user.uid;
       const q1 = query(collection(db,"teams"),where("uid","==",uid));
       const docs = await getDocs(q1);
-      // console.log(docs.docs[0].data());
+      console.log(docs.docs[0].data());
       setUidCookie(uid);
       setUid(uid);
       setUser(docs.docs[0].data());
@@ -83,7 +83,7 @@ const Login = (props) => {
           <div className="btn">
         <button onClick={handleSubmit}>Login</button>
           </div>
-          <Link  style={{marginTop:'2em'}} to="/login/resetpassword" >
+          <Link to="/resetpassword" >
         Reset Password
           </Link>
         </div>

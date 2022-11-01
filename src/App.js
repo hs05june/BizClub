@@ -1,27 +1,22 @@
 
-import { useState } from "react";
-import { useEffect } from "react";
-import Sidebar from "./Components/Sidebar";
-import styled from 'styled-components';
-import AboutPage from "./Pages/AboutPage";
-import HomePage from "./Pages/HomePage";
-import MarketPage from './Pages/MarketPage';
-import OrdersPage from "./Pages/OrdersPage";
-import Brightness4Icon from '@mui/icons-material/Brightness4';
 import MenuIcon from '@mui/icons-material/Menu';
-import { Route, Switch as Switching } from "react-router";
-import Switch from '@mui/material/Switch'
 import { IconButton } from "@mui/material";
-import NavBar from "./Pages/NavBar";
+import { collection, getDocs, query, where } from "firebase/firestore";
+import { useEffect, useState } from "react";
+import { Route, Switch as Switching } from "react-router";
+import styled from 'styled-components';
+import BuyPopup from "./Components/BuyPopup";
 import Login from "./Components/Login";
+import ResetPassword from "./Components/ResetPassword";
+import Sidebar from "./Components/Sidebar";
+import { useData } from "./context/contextapi";
+import { db } from "./firebase.config";
+import AboutPage from "./Pages/AboutPage";
+import MarketPage from './Pages/MarketPage';
+import NavBar from "./Pages/NavBar";
+import OrdersPage from "./Pages/OrdersPage";
 import PortfoliosPage from "./Pages/PortfoliosPage";
 import Watchlist from "./Pages/WatchList";
-import { useData } from "./context/contextapi";
-import { collection, getDocs, query, where } from "firebase/firestore";
-import { useHistory } from "react-router";
-import { db } from "./firebase.config";
-import BuyPopup from "./Components/BuyPopup";
-import ResetPassword from "./Components/ResetPassword";
 
 function App() {
   const [theme, setTheme] = useState('dark-theme');
@@ -75,7 +70,8 @@ function App() {
         <NavBar checked={checked} themeToggler={themeToggler}/>
         <Sidebar navToggle={navToggle} />
         </Route>
-        <Route path="/login/resetpassword" exact>
+        <Route exact path="/resetpassword" >
+        {/* <ResetPassword/> */}
         <ResetPassword/>
         </Route>
       </Switching>
