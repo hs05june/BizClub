@@ -66,7 +66,7 @@ const Login = (props) => {
   <div className="main">
     
         <div className="form">
-          <div className="logo">Logo</div>
+          <div className="logo" style={{textAlign:'center'}}><img src="logo2.jpg" height="20%" width="20%"/></div>
           <h4 id="login">Login</h4>
           <div className="input">
         <input type="text" placeholder='Enter Your Team Name' ref={emailRef} style={{background:'transparent'}}/>
@@ -106,8 +106,14 @@ const LoginStyles = styled.div`
  display: flex;
  align-items: center;
  flex-direction: column;
- padding: 4rem 0.3rem;
+ padding: 2rem 0.3rem;
  border-radius: 0.5rem;
+ padding-top:1rem;
+}
+.logo img{
+  margin-bottom:0.5em;
+  border-radius:5px;
+  box-shadow: 0px 0px 3px 3px rgba(255,255,255,0.6);
  
 }
 .input {

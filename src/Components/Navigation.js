@@ -24,13 +24,7 @@ function Navigation() {
                     <ArrowDropDownIcon className='down'/>
                 </div>
                 <div className='lists'>
-                {
-                        stocks &&
-                        stocks.map((stock)=>{
-                            return<ListItem title={stock.name} key={stock.id} increase={Number(stock.price) >=Number(stock.prevPrice)} value={Number(stock.price)} subtitle="NSE" change={Math.abs(Number(stock.price) - Number(stock.prevPrice))} percent={stock.prevPrice!=0 ? Number(((Math.abs(stock.price - stock.prevPrice)/stock.prevPrice) *100).toFixed(2)) : 0}/>
-                        }
-                        )
-                    }
+
             </div>
             </div>
 

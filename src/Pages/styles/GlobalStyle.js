@@ -49,6 +49,7 @@ const GlobalStyle = createGlobalStyle`
     --background-watch-heading:#E48D8D;
     --watch-heading-color:red;
     --list-item-background:#F1F1F1;
+    --logo-shadow:#2C2C2C;
     --home-color:white;
     --navigation-background-color:#F1F1F1;
     --buy-sell-background:#FCF7DA;
@@ -63,6 +64,7 @@ const GlobalStyle = createGlobalStyle`
 }
 
 .dark-theme{
+    --logo-shadow:#F1F1F1;
     --buy-pop-shadow:rgba(255, 255, 255, 0.7);
     --buy-popup-head:#2C2C2C;
     --buypopup-text-color:#ffffff;
