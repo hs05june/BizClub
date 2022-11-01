@@ -78,7 +78,8 @@ function App() {
         <NavBar checked={checked} themeToggler={themeToggler}/>
         <Sidebar navToggle={navToggle} />
         </Route>
-        <Route path="/login/resetpassword" exact>
+        <Route exact path="/resetpassword" >
+        {/* <ResetPassword/> */}
         <ResetPassword/>
         </Route>
       </Switching>

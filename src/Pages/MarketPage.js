@@ -2,10 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import SearchIcon from '@mui/icons-material/Search';
 import MarketItem from './MarketItem';
+import { useData } from '../context/contextapi';
 
 function MarketPage() {
-
-    return (
+const {stocks} = useData()
+console.log(stocks);
+return (
             <ResumePageStyled>
                 <form  className="avatar">
                 <span className="searchIcon"><SearchIcon/></span>
@@ -21,7 +23,14 @@ function MarketPage() {
                     <th style={{width:'10vw'}}>Value (in Cr.)</th>
                 </tr>
                 <div className='tableContent'>
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
+                    {
+                        stocks &&
+                        stocks.map(e=>{
+                            return <MarketItem name={e.name} ltp={e.prevPrice} change={e.price -e.prevPrice} changePercent={(e.price-e.prevPrice)/100} volume="38,31,736" value={e.price} increase={(e.price - e.prevPrice)>0} />
+                            
+                        })
+                    }
+                    {/* <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
                     <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
                     <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
                     <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
@@ -44,7 +53,7 @@ function MarketPage() {
                     <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
                     <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
                     <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={false} />
-                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} />
+                    <MarketItem name="Bharat Petroleum" ltp="335.15" change="1.00" changePercent="0.30" volume="38,31,736" value="128.819" increase={true} /> */}
                 </div>
             </table>       
          </ResumePageStyled>

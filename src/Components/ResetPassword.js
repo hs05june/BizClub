@@ -1,11 +1,12 @@
 import React, { useRef, useState } from 'react'
-import { RiEyeCloseLine , RiEyeLine } from "react-icons/ri";
+// import { RiEyeCloseLine , RiEyeLine } from "react-icons/ri";
 import { Link } from 'react-router-dom';
-import { auth,db } from '../firebaseconfig';
+import { auth,db } from '../firebase.config';
 import styled from 'styled-components';
 import { signInWithEmailAndPassword, updatePassword } from 'firebase/auth';
 import { collection, doc, getDocs, query, updateDoc, where } from 'firebase/firestore';
 import { useData } from '../context/contextapi';
+import { Visibility, VisibilityOff } from '@mui/icons-material';
 const ResetPassword = () => {
   const [see, setSee] = useState(false)
   const [see1, setSee1] = useState(false)
@@ -70,18 +71,18 @@ const ResetPassword = () => {
         <input type={`${!see ? "password" :"text"}`} placeholder='Enter Your Old Password' ref={passRef}/>
 {
   see ?
-  <RiEyeLine onClick={()=>{setSee(!see)}} />
+  <VisibilityOff onClick={()=>{setSee(!see)}} />
   :
-  <RiEyeCloseLine onClick={()=>{setSee(!see)}} />
+  <Visibility onClick={()=>{setSee(!see)}} />
 }
           </div>
           <div className="input">
         <input type={`${!see1 ? "password" :"text"}`} placeholder='Enter Your New Password' ref={newpassRef}/>
 {
   see1 ?
-  <RiEyeLine onClick={()=>{setSee1(!see1)}} />
+  <Visibility onClick={()=>{setSee1(!see1)}} />
   :
-  <RiEyeCloseLine onClick={()=>{setSee1(!see1)}} />
+  <VisibilityOff onClick={()=>{setSee1(!see1)}} />
 }
           </div>
           <div className="btn">
